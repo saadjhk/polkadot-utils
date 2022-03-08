@@ -28,7 +28,7 @@ export class SignedExtrinsicExecutor {
       .signAndSend(this.sender, (res: ISubmittableResult) => {
         const { status } = res;
 
-        if (status.asFinalized) {
+        if (status.isFinalized) {
           this.onFinality(status.asFinalized.toString());
 
           this.unsubscribe();
