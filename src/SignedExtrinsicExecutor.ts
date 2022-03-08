@@ -24,9 +24,8 @@ export class SignedExtrinsicExecutor {
   }
 
   public async executeTransaction(): Promise<void> {
-    this.unsubscribe = await this.call.signAndSend(
-      this.sender,
-      (res: ISubmittableResult) => {
+    this.unsubscribe = await this.call
+      .signAndSend(this.sender, (res: ISubmittableResult) => {
         const { status } = res;
 
         if (status.asFinalized) {
@@ -34,9 +33,9 @@ export class SignedExtrinsicExecutor {
 
           this.unsubscribe();
         }
-      }
-    ).catch((err) => {
+      })
+      .catch((err) => {
         // dispatch err
-    });
+      });
   }
 }
