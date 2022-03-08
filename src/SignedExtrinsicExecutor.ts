@@ -35,6 +35,8 @@ export class SignedExtrinsicExecutor {
           this.unsubscribe();
         }
       }
-    );
+    ).catch((err) => {
+        // dispatch err
+    });
   }
 }
