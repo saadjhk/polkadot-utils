@@ -35,7 +35,7 @@ export class SignedExtrinsicExecutor {
         }
       })
       .catch((err: any) => {
-          console.log(err)
+        console.log(err);
         // dispatch err
       });
   }
